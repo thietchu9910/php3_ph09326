@@ -16,10 +16,12 @@ class CreateStudentsTable extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('phone');
             $table->integer('age');
-            $table->integer('gender');
+            $table->string('email');
+            $table->string('phone');
             $table->string('address')->nullable();
+            $table->string('password');           
+            $table->integer('gender');
             $table->boolean('is_active')->default(0);
             $table->timestamps();
         });
