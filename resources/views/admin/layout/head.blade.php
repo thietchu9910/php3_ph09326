@@ -1,13 +1,16 @@
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 3 | Dashboard</title>
-  <!-- Tell the browser to be responsive to screen width -->
+<head>
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="{{asset('css/all.min.css')}}">
-  <!-- <link rel="stylesheet" href="{{asset('css/fontawesome-free/css/all.min.css')}}> -->
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
 
+  <title>AdminLTE 3 | Dashboard 3</title>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="{{asset('admin/plugins/fontawesome-free/css/all.min.css')}}">
+  <!-- IonIcons -->
+  <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="{{asset('css/adminlte.min.css')}}">
-
+  <link rel="stylesheet" href="{{asset('admin/dist/css/adminlte.min.css')}}">
+  <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>

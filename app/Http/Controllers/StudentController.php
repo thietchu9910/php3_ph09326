@@ -15,7 +15,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $students = DB::table('students')->paginate(6);
+        $students = Student::orderBy('created_at')->limit(6)->get();
         return view('admin.dashboard.index', compact('students'));
         
     }
@@ -27,7 +27,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        return view('admin.dashboard.create');
+        return view('admin.dashboard.add');
     }
 
     /**
@@ -38,7 +38,10 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $student = new Student;
+        $student->fill($request->all());
+        $student->save();
+        return redirect()->route('student');
     }
 
     /**
@@ -62,7 +65,7 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('students.edit', ['student' => $student]);
     }
 
     /**
@@ -74,7 +77,18 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+          // dd($request->all());
+        // Gan gia tri moi cho cac thuoc tinh cua student can update
+        $student->name = $request->name;
+
+        // Thuc hien goi phuong thuc save() de luu du lieu
+        $student->save();
+
+        // Cach 2: $student->update(['name' => $request->name]);
+        // Hoac $student->update([$request->all()])
+        // Khong can save
+
+        return redirect()->route('students.index');
     }
 
     /**
@@ -85,6 +99,13 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        //
+          // Kiem tra ton tai sinh vien -> xoa
+          if($student) {
+            $student->delete(); // tra ve ket qua true/false
+        }
+
+        // Cach 2: Student::destroy($student->id); // tra ve so luong ban ghi bi xoa
+        // Redirect ve danh sach (co thuc hien truy van lay ds moi)
+        return redirect()->route('students.index');
     }
 }
